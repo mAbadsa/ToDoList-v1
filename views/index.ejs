@@ -1,16 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <style>
+        .border-l {
+            border-left: 15px solid #555555;
+        }
+
+        .bg-light {
+            background-color: #a5a5a5 !important;
+            color: #e5e5e5;
+        }
+
+        .line {
+            display: inline-block;
+            width: 100%;
+            height: 1px;
+            background-color: #959595;
+        }
+    </style>
     <title>ToDoList</title>
 </head>
+
 <body>
-    <h1><%= title %></h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 offset-4 text-center mt-5 bg-success">
+                <h1><%= title %></h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <% for(let i = 0; i < newListItem.length; i ++) { %>
+                
+            <div class="col-4 offset-4 px-0">
+                <div class="box-item px-2 pt-2 my-1 bg-light border-l">
+                    <input class="" type="checkbox" name="" id="">
+                    <p class="d-inline-block ml-2 px-2"><%= newListItem[i] %></p>
+                </div>
+            </div>
+            <% }%>
+        </div>
+        <div class="row">
+            <div class="col-4 offset-4 p-0">
+                <spna class="line mb-2"></spna>
+                <form class="form title" action="/" method="post">
+                    <input class="w-100 p-2" type="text" name="" id="" placeholder="type your task...">
+                    <button class="btn btn-primary btn-outline btn-lg btn-block mt-1" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 </body>
+
 </html>
