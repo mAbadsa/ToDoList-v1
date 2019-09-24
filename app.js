@@ -36,7 +36,9 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
 	var item = req.body.newItem;
-	items.push(item);
+	if(item !== "") {
+		items.push(item);
+	}
 	res.redirect('/');
 })
 
