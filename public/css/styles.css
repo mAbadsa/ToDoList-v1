@@ -37,6 +37,7 @@ h1 {
 input:checked+p {
   text-decoration: line-through;
   text-decoration-color: #A683E3;
+  color: #a5a5a5;
 }
 
 input[type="checkbox"] {
@@ -64,8 +65,16 @@ button {
   background-color: #A683E3;
   color: #fff;
   font-size: 30px;
-  padding-bottom: 6px;
+  /* padding-bottom: 6px; */
   border-width: 0;
+  cursor: pointer;
+  outline: none;
+  transition: 0.4s;
+}
+
+button:hover {
+  background-color: rgb(125, 87, 190);
+  transition: 0.4s;
 }
 
 input[type="text"] {

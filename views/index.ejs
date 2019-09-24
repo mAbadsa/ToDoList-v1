@@ -10,15 +10,20 @@
 </head>
 
 <body>
+    <div class="box" id="heading">
+        <h1><%= kinOfDay %></h1>
+    </div>
     <div class="box">
-        <div id="header">
-            <h1>ToDo list</h1>
-        </div>
+        <% for(let i = 0; i < newListItem.length; i ++) { %>
         <div class="item">
-            <ul>
-                <li></li>
-            </ul>
+            <input type="checkbox" name="" id="">
+            <p class="d-inline-block mb-0 py-2"><%= newListItem[i] %></p>
         </div>
+        <% }%>
+        <form class="item" action="/" method="post">
+            <input class="" type="text" name="newItem" id="" placeholder="New item" autocomplete="off">
+            <button class="" type="submit" name="button">+</button>
+        </form>
     </div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.bundle.js"></script>
