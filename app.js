@@ -8,6 +8,7 @@ const viewsDirPath = path.join(__dirname, './views');
 
 const app = express();
 let items = [];
+let workList = [];
 
 const { PORT = 3000 } = process.env;
 
@@ -29,7 +30,7 @@ app.get('/', (req, res) => {
 
 	res.render('index', {
 		title: 'ToDoList',
-		kinOfDay: day,
+		listTitle: day,
 		newListItem: items
 	});
 })
@@ -37,10 +38,37 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
 	let item = req.body.newItem;
 	if(item !== "") {
-		items.push(item);
+		if(req.body.list === 'Work') {
+			workList.push(item);
+			res.redirect('/work');
+		} else {
+			items.push(item);
+			res.redirect('/');
+		}
 	}
-	res.redirect('/');
+	console.log(req.body);
+	// res.redirect('/');
 })
+
+app.get('/work', (req, res) => {
+	res.render('index', {
+		listTitle: "Work List",
+		newListItem: workList
+	})
+})
+
+app.get('/about', (req, res) => {
+	res.render('about', {
+		listTitle: "About",
+		newListItem: workList
+	})
+})
+
+// app.post('/work', (req, res) => {
+// 	let item = req.body.newItem;
+// 	workList.push(item);
+// 	res.redirect('/work');
+// })
 
 app.listen(PORT, () => {
 	console.log('Server is running on port', PORT);

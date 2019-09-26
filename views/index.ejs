@@ -1,33 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>ToDoList</title>
-</head>
-
-<body>
+<%- include('layout/header'); -%>
     <div class="box" id="heading">
-        <h1><%= kinOfDay %></h1>
+        <h1><%= listTitle %></h1>
     </div>
     <div class="box">
         <% for(let i = 0; i < newListItem.length; i ++) { %>
         <div class="item">
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="checkbox" id="complete-todos">
             <p class="d-inline-block mb-0 py-2"><%= newListItem[i] %></p>
         </div>
         <% }%>
         <form class="item" action="/" method="post">
             <input class="" type="text" name="newItem" id="" placeholder="New item" autocomplete="off">
-            <button class="" type="submit" name="button">+</button>
+            <button class="" type="submit" name="list" value=<%= listTitle %> id="add-btn">+</button>
         </form>
     </div>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.bundle.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+    <%- include('layout/footer'); -%>

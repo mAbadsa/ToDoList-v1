@@ -5,6 +5,13 @@ html {
   font-family: 'helvetica neue';
 }
 
+.container {
+  max-width: 720px;
+  margin: 5rem auto;
+  background-color: rgb(101, 51, 189);
+  border-radius: 1.5rem;
+}
+
 h1 {
   color: #fff;
   padding: 10px;
@@ -37,7 +44,8 @@ h1 {
 input:checked+p {
   text-decoration: line-through;
   text-decoration-color: #A683E3;
-  color: #a5a5a5;
+  color: #b5b5b5;
+  transition: 0.3s;
 }
 
 input[type="checkbox"] {
@@ -50,6 +58,7 @@ p {
   font-size: 20px;
   font-weight: 200;
   color: #00204a;
+  transition: 0.2s;
 }
 
 form {
@@ -102,4 +111,14 @@ footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+.page-title {
+  color: rgb(217, 204, 238);
+  padding-left: 1.5rem;
+  margin-bottom: 0px;
+}
+
+.desc-test {
+  color: rgb(217, 204, 238)
 }
