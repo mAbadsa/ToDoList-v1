@@ -2,13 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
+const date = require('./modules/date');
 
 const publicDirPath = path.join(__dirname, './public');
 const viewsDirPath = path.join(__dirname, './views');
 
 const app = express();
-let items = [];
-let workList = [];
+const items = [];
+const workList = [];
 
 const { PORT = 3000 } = process.env;
 
@@ -20,13 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
 
-	let toDay = new Date(),
-		option = {
-			weekday: 'long',
-			month: 'long',
-			day: 'numeric'
-		};
-	let day = toDay.toLocaleDateString('en-US', option);
+	const day = date.getDate();
 
 	res.render('index', {
 		title: 'ToDoList',
@@ -36,7 +31,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-	let item = req.body.newItem;
+	const item = req.body.newItem;
 	if(item !== "") {
 		if(req.body.list === 'Work') {
 			workList.push(item);
